@@ -61,11 +61,12 @@ class OnBoardingScreen extends StatelessWidget {
               right: 6,
               left: 6,
               child: CustomButton(
-                color: const Color(0xFF1C18F2),
+                color:  const Color(0xFF176FF2),
                 text: 'Explore',
                 textStyle: const TextStyle(
                   color: Colors.white,
-                  fontSize: 16.0
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w500,
                 ),
                 onTap: (){
                   GoRouter.of(context).push(

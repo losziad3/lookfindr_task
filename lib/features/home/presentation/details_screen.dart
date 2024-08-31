@@ -2,9 +2,12 @@ import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lookfindr_task/core/utils/assets.dart';
+import 'package:lookfindr_task/features/home/widgets/book_now_button.dart';
 import 'package:lookfindr_task/features/home/widgets/image_deatils_screen.dart';
 import 'package:lookfindr_task/features/home/widgets/read_more_text.dart';
 import 'package:lookfindr_task/features/home/widgets/star_rating.dart';
+
+import '../../onboarding/widgets/custom_button.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key});
@@ -56,10 +59,10 @@ class DetailsScreen extends StatelessWidget {
                   rating: 4.5,
                   reviewCount: 335,
                 ),
-                 SizedBox(height: screenHeight * .02),
+                SizedBox(height: screenHeight * .02),
                 const ReadMoreText(
                   text:
-                  'Aspen is as close as one can get to a storybook alpine town in America. The choose-your-own-adventure possibilities—skiing, hiking, dining, shopping and, Aspen is as close as one can get to a storybook alpine town in America. The choose-your-own-adventure possibilities—skiing, hiking, dining, shopping and....',
+                      'Aspen is as close as one can get to a storybook alpine town in America. The choose-your-own-adventure possibilities—skiing, hiking, dining, shopping and, Aspen is as close as one can get to a storybook alpine town in America. The choose-your-own-adventure possibilities—skiing, hiking, dining, shopping and....',
                 ),
                 SizedBox(height: screenHeight * .04),
                 const Text(
@@ -77,6 +80,43 @@ class DetailsScreen extends StatelessWidget {
                     FeatureButtonData(icon: Icons.pool, label: 'Pool'),
                   ],
                 ),
+                SizedBox(height: screenHeight * .03),
+                Row(
+                  children: [
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Price',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Text(
+                          '\$199',
+                          style: TextStyle(
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF2DD7A4),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Spacer(),
+                    BookNowButton(
+                      color: const Color(0xFF176FF2),
+                      text: 'Book Now',
+                      textStyle: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      onTap: (){
+
+                      },
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
@@ -85,6 +125,7 @@ class DetailsScreen extends StatelessWidget {
     );
   }
 }
+
 class FeatureButtonRow extends StatelessWidget {
   final List<FeatureButtonData> buttons;
 
@@ -93,10 +134,8 @@ class FeatureButtonRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-        children: buttons.map((button)
-    => _buildFeatureButton(button)).toList(),
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: buttons.map((button) => _buildFeatureButton(button)).toList(),
     );
   }
 
@@ -110,23 +149,22 @@ class FeatureButtonRow extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-
         children: [
-        Icon(
-        button.icon,
-        size: 30,
-      color: Colors.grey[700],
+          Icon(
+            button.icon,
+            size: 30,
+            color: Colors.grey[700],
+          ),
+          const SizedBox(height: 4),
+          Text(
+            button.label,
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.grey[700],
+            ),
+          ),
+        ],
       ),
-      SizedBox(height: 4),
-      Text(
-        button.label,
-        style: TextStyle(
-          fontSize: 12,
-          color: Colors.grey[700],
-        ),
-      ),
-      ],
-    ),
     );
   }
 }
