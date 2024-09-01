@@ -27,7 +27,7 @@ class OnBoardingScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 40.0),
                 child: Text(
                   'Aspen',
-                  style: GoogleFonts.pacifico(
+                  style: GoogleFonts.allan(
                     fontSize: 80,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,

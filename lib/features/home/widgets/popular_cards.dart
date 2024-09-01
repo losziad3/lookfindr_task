@@ -37,7 +37,7 @@ class PopularCards extends StatelessWidget {
               bottomPosition: 5,
               widthOfHeart: 40,
               heightOfHeart: 40,
-              iconSize: 26,
+              iconSize: 22,
             ),
           Positioned(
             bottom: 10,
