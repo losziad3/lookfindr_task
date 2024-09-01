@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class ImageWithButtons extends StatelessWidget {
   final String image;
+  void Function()? onPressed;
 
-  const ImageWithButtons({required this.image});
+   ImageWithButtons({required this.image ,required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +31,7 @@ class ImageWithButtons extends StatelessWidget {
             ),
             child: Center(
               child: IconButton(
-                onPressed: () {
-                  // Handle back button press
-                },
+                onPressed: onPressed,
                 icon: const Icon(
                   Icons.arrow_back_ios_new,
                   color: Colors.grey,

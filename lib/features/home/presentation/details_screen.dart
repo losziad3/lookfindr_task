@@ -1,12 +1,16 @@
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lookfindr_task/core/utils/assets.dart';
 import 'package:lookfindr_task/features/home/widgets/book_now_button.dart';
+import 'package:lookfindr_task/features/home/widgets/facilities_icon.dart';
 import 'package:lookfindr_task/features/home/widgets/image_deatils_screen.dart';
 import 'package:lookfindr_task/features/home/widgets/read_more_text.dart';
 import 'package:lookfindr_task/features/home/widgets/star_rating.dart';
 
+import '../../../core/utils/routes.dart';
 import '../../onboarding/widgets/custom_button.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -27,8 +31,11 @@ class DetailsScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const ImageWithButtons(
+                 ImageWithButtons(
                   image: kImage_2,
+                  onPressed: (){
+                    GoRouter.of(context).pop();
+                  },
                 ),
                 SizedBox(
                   height: screenHeight * .027,
@@ -72,12 +79,15 @@ class DetailsScreen extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
+                SizedBox(
+                  height: screenHeight * .02,
+                ),
                 FeatureButtonRow(
                   buttons: [
-                    FeatureButtonData(icon: Icons.wifi, label: '1 Heater'),
-                    FeatureButtonData(icon: Icons.restaurant, label: 'Dinner'),
-                    FeatureButtonData(icon: Icons.bathtub, label: '1 Tub'),
-                    FeatureButtonData(icon: Icons.pool, label: 'Pool'),
+                    FacilitiesIcons(icon: SvgPicture.asset(kHeater), label: '1 Heater'),
+                    FacilitiesIcons(icon: SvgPicture.asset(kDinner), label: 'Dinner'),
+                    FacilitiesIcons(icon: SvgPicture.asset(kTub), label: '1 Tub'),
+                    FacilitiesIcons(icon: SvgPicture.asset(kPool), label: 'Pool'),
                   ],
                 ),
                 SizedBox(height: screenHeight * .03),
@@ -126,52 +136,3 @@ class DetailsScreen extends StatelessWidget {
   }
 }
 
-class FeatureButtonRow extends StatelessWidget {
-  final List<FeatureButtonData> buttons;
-
-  const FeatureButtonRow({required this.buttons});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: buttons.map((button) => _buildFeatureButton(button)).toList(),
-    );
-  }
-
-  Widget _buildFeatureButton(FeatureButtonData button) {
-    return Container(
-      width: 80,
-      height: 80,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.grey[200],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            button.icon,
-            size: 30,
-            color: Colors.grey[700],
-          ),
-          const SizedBox(height: 4),
-          Text(
-            button.label,
-            style: TextStyle(
-              fontSize: 12,
-              color: Colors.grey[700],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class FeatureButtonData {
-  final IconData icon;
-  final String label;
-
-  FeatureButtonData({required this.icon, required this.label});
-}

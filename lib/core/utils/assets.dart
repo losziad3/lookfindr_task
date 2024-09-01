@@ -16,3 +16,7 @@ const String kTrendingUp = '$kBasePathSvg/trending-up.svg';
 const String kProfile = '$kBasePathSvg/profile.svg';
 const String kFavorite = '$kBasePathSvg/heart.svg';
 const String kTicket = '$kBasePathSvg/ticket.svg';
+const String kHeater = '$kBasePathSvg/heater.svg';
+const String kDinner = '$kBasePathSvg/dinner.svg';
+const String kPool = '$kBasePathSvg/pool.svg';
+const String kTub = '$kBasePathSvg/tub.svg';

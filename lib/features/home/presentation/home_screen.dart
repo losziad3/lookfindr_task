@@ -103,7 +103,11 @@ class HomeScreen extends StatelessWidget {
                     PopularCards(
                       screenHeight: screenHeight,
                       image: kImage_2,
-                      onTap: (){},
+                      onTap: (){
+                        GoRouter.of(context).push(
+                          Routes.kDetailsScreen,
+                        );
+                      },
                     ),
                   ],
                 ),
