@@ -89,6 +89,8 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   children: [
                     PopularCards(
+                      rating: '4.1',
+                      text: 'Alley Palace',
                       screenHeight: screenHeight,
                       image: kImage_1,
                       onTap: (){
@@ -101,6 +103,9 @@ class HomeScreen extends StatelessWidget {
                       width: screenWidth * .04,
                     ),
                     PopularCards(
+                      showHeartIcon: false,
+                      text: 'Coeurdes',
+                      rating: '4.5',
                       screenHeight: screenHeight,
                       image: kImage_2,
                       onTap: (){

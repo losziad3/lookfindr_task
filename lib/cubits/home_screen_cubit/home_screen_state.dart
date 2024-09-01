@@ -1,36 +1,28 @@
 import 'package:equatable/equatable.dart';
 
-abstract class HomePageState extends Equatable {
-@override
-List<Object> get props => [];
-}
-
-class LocationState extends HomePageState {
+class HomePageState extends Equatable {
   final String selectedLocation;
   final List<String> locations;
+  final int selectedCategoryIndex;
 
-  LocationState({
+  HomePageState({
     required this.selectedLocation,
     required this.locations,
+    required this.selectedCategoryIndex,
   });
 
-  LocationState copyWith({
+  HomePageState copyWith({
     String? selectedLocation,
     List<String>? locations,
+    int? selectedCategoryIndex,
   }) {
-    return LocationState(
+    return HomePageState(
       selectedLocation: selectedLocation ?? this.selectedLocation,
       locations: locations ?? this.locations,
+      selectedCategoryIndex: selectedCategoryIndex ?? this.selectedCategoryIndex,
     );
   }
 
   @override
-  List<Object> get props => [selectedLocation, locations];
-}
-
-
-class CategoriesState extends HomePageState{
-  final int selectedIndex;
-
-  CategoriesState(this.selectedIndex);
+  List<Object> get props => [selectedLocation, locations, selectedCategoryIndex];
 }

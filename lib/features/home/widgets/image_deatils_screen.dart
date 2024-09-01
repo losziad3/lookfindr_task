@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../components/components.dart';
+
 class ImageWithButtons extends StatelessWidget {
   final String image;
   void Function()? onPressed;
@@ -40,36 +42,17 @@ class ImageWithButtons extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(
-          bottom: 0,
-          right: 20,
-          child: Container(
-            height: 60,
-            width: 60,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.2),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
-            clipBehavior: Clip.none,
-            // Allow the icon to overflow
-            child: const Center(
-              child: Icon(
-                Icons.favorite,
-                color: Colors.red,
-                size: 40,
-              ),
-            ),
-          ),
+         HeartIcon(
+           // if the user click on the heart icon, will add this to teh favorite page
+           onTap: (){},
+          heightOfHeart: 60,
+          widthOfHeart: 60,
+          bottomPosition: 0,
+          iconSize: 40,
         ),
       ],
     );
   }
 }
+
+

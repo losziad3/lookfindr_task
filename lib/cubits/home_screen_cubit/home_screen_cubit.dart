@@ -3,16 +3,18 @@ import 'package:lookfindr_task/cubits/home_screen_cubit/home_screen_state.dart';
 
 class HomeScreenCubit extends Cubit<HomePageState> {
   HomeScreenCubit()
-      : super(LocationState(
-      selectedLocation: 'Los Angeles, USA',
-      locations: const ['Aspen, USA', 'New York, USA', 'Los Angeles, USA']));
+      : super(HomePageState(
+    selectedLocation: 'Los Angeles, USA',
+    locations: const ['Aspen, USA', 'New York, USA', 'Los Angeles, USA'],
+    selectedCategoryIndex: 0,
+  ));
 
   void selectLocation(String location) {
-    final currentState = state;
-    if (currentState is LocationState) {
-      emit(currentState.copyWith(selectedLocation: location));
-    }
+    emit(state.copyWith(selectedLocation: location));
   }
-  // To Select Categories
-  void selectItem(int index) => emit(CategoriesState(index));
+
+  void selectCategory(int index) {
+    emit(state.copyWith(selectedCategoryIndex: index));
+  }
 }
+

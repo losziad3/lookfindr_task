@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../components/components.dart';
+
 class StarRatingComponent extends StatelessWidget {
   final double rating;
   final int reviewCount;
@@ -14,7 +16,7 @@ class StarRatingComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        _buildStarRating(rating),
+        buildStarRating(rating),
         Text(
           '${rating.toStringAsFixed(1)} ($reviewCount Reviews)',
           style: const TextStyle(
@@ -26,17 +28,5 @@ class StarRatingComponent extends StatelessWidget {
     );
   }
 
-  Widget _buildStarRating(double rating) {
-    List<Widget> stars = [];
-    for (int i = 0; i < 1; i++) {
-      stars.add(
-        Icon(
-          i < rating ? Icons.star : Icons.star_border,
-          color: Colors.amber,
-          size: 16,
-        ),
-      );
-    }
-    return Row(children: stars);
-  }
+
 }
