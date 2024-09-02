@@ -12,7 +12,7 @@
     "name": "Coeurdes Alpes",
     "rating": 4.5,
     "reviews": 10000,
-    "description": "The Eiffel Tower is an iron lattice tower on the Champ de Mars in Paris, France. It is the tallest structure in Paris and the most recognizable landmark in the world.",
+    "description": "The Eiffel Tower is an iron lattice tower on the Champ de Mars in Paris, France. It is the tallest structure in Paris and the most recognizable landmark in the world. It is the tallest structure in Paris and the most recognizable landmark in the world.",
     "facilities": ["Elevator", "Observation Deck", "Restaurant", "Gift Shop"],
     "price": 150,
     "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/65/73/f8/coeur-des-alpes.jpg?w=700&h=-1&s=1"
