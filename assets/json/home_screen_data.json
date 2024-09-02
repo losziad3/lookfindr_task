@@ -1,0 +1,26 @@
+{
+  "popular": [
+    {
+      "name": "Alley Palace",
+      "rating": 4.1,
+      "image": "https://media.istockphoto.com/id/908017356/photo/new-york-city-alleyways.jpg?s=612x612&w=0&k=20&c=BMbYRvt5JdqBs8aLNo9fF10AVASgEndUXo29N8CRRVc="
+    },
+    {
+      "name": "Coeurdes Alpes",
+      "rating": 4.5,
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/65/73/f8/coeur-des-alpes.jpg?w=700&h=-1&s=1"
+    }
+  ],
+  "recommended": [
+    {
+      "name": "Explore Aspen",
+      "duration": "4N/5D",
+      "image": "https://nordicsafari.no/wp-content/uploads/2020/06/coeur-des-alpes-zermatt-640x480.jpg"
+    },
+    {
+      "name": "Luxurious Aspen",
+      "duration": "2N/3D",
+      "image": "https://dam.destination.one/195306/31b940edb4df68e495d5566a97738462468eec2b64cb7d286a8bfd0dd177d88d/.jpg"
+    }
+  ]
+}
