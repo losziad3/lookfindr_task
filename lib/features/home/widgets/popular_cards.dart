@@ -25,14 +25,17 @@ class PopularCards extends StatelessWidget {
       onTap: onTap,
       child: Stack(
         children: [
-          Image.asset(
-            image,
-            height: screenHeight * .27,
+          ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(15)),
+            child: Image.network(
+              image,
+              height: screenHeight * 1,
+              fit: BoxFit.cover,
+            ),
           ),
           // Conditionally show the HeartIcon based on showHeartIcon
           if (showHeartIcon)
             HeartIcon(
-              // If the user clicks on the heart icon, it will be added to the favorite page
               onTap: () {},
               bottomPosition: 5,
               widthOfHeart: 40,

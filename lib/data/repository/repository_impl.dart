@@ -9,7 +9,7 @@ class RepositoryImplementation implements Repository {
   RepositoryImplementation(this.dataSource);
 
   @override
-  Future<List<HomeScreenModel>> fetchPopularAndRecommended() async {
+  Future<HomeScreenModel> fetchPopularAndRecommended() async {
     return await dataSource.getPopularAndRecommended();
   }
 

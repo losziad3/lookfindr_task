@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lookfindr_task/cubits/home_screen_cubit/home_screen_cubit.dart';
+import 'package:lookfindr_task/cubits/home_screen_cubit/home_screen_state.dart';
 import 'package:lookfindr_task/features/home/widgets/categories.dart';
 import 'package:lookfindr_task/features/home/widgets/location_drop_down.dart';
 import 'package:lookfindr_task/features/home/widgets/popular_cards.dart';
+import 'package:lookfindr_task/features/home/widgets/popular_items.dart';
 import 'package:lookfindr_task/features/home/widgets/recommended_card.dart';
+import 'package:lookfindr_task/features/home/widgets/recommended_items.dart';
 import 'package:lookfindr_task/features/home/widgets/search_bar.dart';
 
 import '../../../core/utils/assets.dart';
@@ -18,7 +23,8 @@ class HomeScreen extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
     final screenWidth = mediaQuery.size.width;
     final screenHeight = mediaQuery.size.height;
-    final textScaleFactor = mediaQuery.textScaleFactor;
+
+    context.read<HomeScreenCubit>().fetchPopularAndRecommended();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -26,7 +32,7 @@ class HomeScreen extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           child: Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+            const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -86,36 +92,10 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Row(
-                  children: [
-                    PopularCards(
-                      rating: '4.1',
-                      text: 'Alley Palace',
-                      screenHeight: screenHeight,
-                      image: kImage_1,
-                      onTap: (){
-                        GoRouter.of(context).push(
-                          Routes.kDetailsScreen,
-                        );
-                      },
-                    ),
-                    SizedBox(
-                      width: screenWidth * .04,
-                    ),
-                    PopularCards(
-                      showHeartIcon: false,
-                      text: 'Coeurdes',
-                      rating: '4.5',
-                      screenHeight: screenHeight,
-                      image: kImage_2,
-                      onTap: (){
-                        GoRouter.of(context).push(
-                          Routes.kDetailsScreen,
-                        );
-                      },
-                    ),
-                  ],
-                ),
+
+                //Popular Items
+                const PopularItems(),
+
                 SizedBox(
                   height: screenHeight * .03,
                 ),
@@ -130,23 +110,9 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(
                   height: screenHeight * .01,
                 ),
-                Row(
-                  children: [
-                    const RecommendedCard(
-                      image: kImage_3,
-                      title: 'Explore Aspen',
-                      duration: 'Hot Deal',
-                    ),
-                    SizedBox(
-                      width: screenWidth * .03,
-                    ),
-                    const RecommendedCard(
-                      image: kImage_4,
-                      title: 'Luxurious Aspen',
-                      duration: 'Hot Deal',
-                    ),
-                  ],
-                ),
+
+                //Recommended
+                const RecommendedItems(),
               ],
             ),
           ),
@@ -155,3 +121,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+

@@ -14,7 +14,7 @@ class ImageWithButtons extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(20.0),
-          child: Image.asset(
+          child: Image.network(
             image,
             fit: BoxFit.cover,
             height: 420,

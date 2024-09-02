@@ -18,6 +18,7 @@ class RecommendedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 174,
       decoration: BoxDecoration(
         color: const Color(0xFFf0f4f4),
         borderRadius: BorderRadius.circular(10),
@@ -27,9 +28,12 @@ class RecommendedCard extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(6.0),
-            child: Image.asset(
-              image,
-              fit: BoxFit.cover,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(12)),
+              child: Image.network(
+                image,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Padding(
@@ -44,17 +48,6 @@ class RecommendedCard extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                // Row(
-                //   children: [
-                //     const Icon(Icons.star, color: Colors.yellow),
-                //     const Icon(Icons.star, color: Colors.yellow),
-                //     const Icon(Icons.star, color: Colors.yellow),
-                //     const Icon(Icons.star, color: Colors.yellow),
-                //     const Icon(Icons.star_half, color: Colors.yellow),
-                //     const SizedBox(width: 4),
-                //     Text(rating.toString()),
-                //   ],
-                // ),
                 Row(
                   children: [
                     SvgPicture.asset(kTrendingUp),

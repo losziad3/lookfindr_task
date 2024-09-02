@@ -9,6 +9,11 @@
       "name": "Coeurdes Alpes",
       "rating": 4.5,
       "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/65/73/f8/coeur-des-alpes.jpg?w=700&h=-1&s=1"
+    },
+    {
+      "name": "Rêve des Montagnes",
+      "rating": 4.7,
+      "image": "https://pixnio.com/free-images/2017/08/30/2017-08-30-07-06-43-1000x666.jpg"
     }
   ],
   "recommended": [
@@ -20,7 +25,7 @@
     {
       "name": "Luxurious Aspen",
       "duration": "2N/3D",
-      "image": "https://dam.destination.one/195306/31b940edb4df68e495d5566a97738462468eec2b64cb7d286a8bfd0dd177d88d/.jpg"
+      "image": "https://nordicsafari.no/wp-content/uploads/2020/06/coeur-des-alpes-zermatt-640x480.jpg"
     }
   ]
 }

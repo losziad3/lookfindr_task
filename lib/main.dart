@@ -2,20 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lookfindr_task/core/utils/app_router.dart';
 import 'package:lookfindr_task/cubits/home_screen_cubit/home_screen_cubit.dart';
+import 'package:lookfindr_task/data/data_source/data_source.dart';
+import 'package:lookfindr_task/data/repository/repository_impl.dart';
+import 'package:lookfindr_task/domain/repository/repository.dart';
 
 void main() {
-  runApp(const MyApp());
+  final Repository repository = RepositoryImplementation(DataSource());
+
+  runApp(MyApp(repository: repository));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final Repository repository;
+
+  const MyApp({super.key, required this.repository});
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => HomeScreenCubit(),
+          create: (context) => HomeScreenCubit(repository),
         ),
 
       ],
